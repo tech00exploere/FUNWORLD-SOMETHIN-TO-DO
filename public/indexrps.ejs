@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 30px;
+    font-size: 2.5em;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.choice {
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.choice:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.choice img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.score-bord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 100px;
+}
+
+.score {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 120px;
+}
+
+.score p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #34495e;
+}
+
+#result {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#restart {
+    text-align: center;
+    color: #ffffff;
+    background-color: #3498db;
+    padding: 10px 20px;
+    margin: 30px auto;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#restart:hover {
+    background-color: #2980b9;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Rock-Paper-Scissors</h1>
+
+    <div class="container">
+        <div class="choice">
+            <img src="image/rock1.png" alt="Rock">
+        </div>
+        <div class="choice">
+            <img src="image/paper1.png" alt="Paper">
+        </div>
+        <div class="choice">
+            <img src="image/scissore1.png" alt="Scissors">
+        </div>
+    </div>
+
+    <div class="score-bord">
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>you</p>
+        </div>
+        <div class="score">
+            <p id="computer-score">0</p>
+            <p>computer</p>
+        </div>
+    </div>
+    <p id="result">your result</p>
+    <p id="restart">restart</p>
+
+    <script>
+        const choices = document.querySelectorAll(".choice");
+const userScoreEl = document.getElementById("user-score");
+const computerScoreEl = document.getElementById("computer-score");
+const resultEl = document.getElementById("result");
+const restartBtn = document.getElementById("restart");
+
+let userScore = 0;
+let computerScore = 0;
+
+const options = ["rock", "paper", "scissors"];
+
+choices.forEach((choice, index) => {
+    choice.addEventListener("click", () => {
+        const userChoice = options[index];
+        const computerChoice = options[Math.floor(Math.random() * 3)];
+        playRound(userChoice, computerChoice);
+    });
+});
+
+function playRound(user, computer) {
+    if (user === computer) {
+        resultEl.textContent = `It's a draw! You both chose ${user}.`;
+    } else if (
+        (user === "rock" && computer === "scissors") ||
+        (user === "paper" && computer === "rock") ||
+        (user === "scissors" && computer === "paper")
+    ) {
+        userScore++;
+        userScoreEl.textContent = userScore;
+        resultEl.textContent = `You win! ${user} beats ${computer}.`;
+    } else {
+        computerScore++;
+        computerScoreEl.textContent = computerScore;
+        resultEl.textContent = `You lose! ${computer} beats ${user}.`;
+    }
+}
+
+restartBtn.addEventListener("click", () => {
+    userScore = 0;
+    computerScore = 0;
+    userScoreEl.textContent = userScore;
+    computerScoreEl.textContent = computerScore;
+    resultEl.textContent = "Game reset. Make your move!";
+});
+
+    </script>
+</body>
+</html>
