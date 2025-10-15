@@ -1,0 +1,15 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "its my basic cute project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "priyanshu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+  }
+}
