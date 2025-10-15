@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun-World</title>
+  <link rel="icon" type="image/png" href="image/favicon.ico" />
+  <style>
+    body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: black;
+    background-color: chartreuse;
+}
+#head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(13, 88, 25);
+    color: white;
+    padding: 20px 30px;
+    position: relative;
+}
+
+#menu {
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  margin-right: auto;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Slide-out menu container */
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+/* Active state: slide in */
+#side-menu.active {
+  left: 0;
+}
+
+/* Menu items */
+#side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#side-menu ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #444;
+}
+
+#side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+
+#menu:hover {
+  opacity: 0.8;
+}
+
+
+#t1{
+    background-color: aqua;
+    border-radius: 13px;
+    color: black;
+    padding: 10px 14px;
+    text-align: center;
+    height: 35px;
+}
+
+#log-in {
+    position: relative;
+    margin-left: auto; /* Pushes it to the right */
+}
+
+#log-in:hover{
+  opacity: 0.9;
+}
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* spacing between boxes */
+  padding: 20px;
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* spacing between boxes */
+  padding: 20px;
+}
+
+.container3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* spacing between boxes */
+  padding: 20px;
+}
+
+.box {
+  flex: 1 1 150px;
+  aspect-ratio: 1 / 1; /* height = width */
+  background-color: lightblue;
+  text-align: center;
+  border: 3px solid #10561a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+#box1{
+  background-image: url(image/flappybird.png);
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#box2{
+  background-image: url(image/stnpprss.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#box3{
+  background-image: url(image/tictacto.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box4{
+  background-image: url(image/hungama.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box5{
+   background-image: url(image/zombie.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box6{
+  background-image: url(image/pong.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box7{
+  background-image: url(image/mario-pirodi.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box8{
+  background-image: url(image/drawing.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#box9{
+  background-image: url(image/snack.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#box10{
+  background-image: url(image/ai.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#bottom {
+  color: bisque;
+  background-color: #031406a7;
+  padding: 100px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border-top: 2px solid #1bdb37;
+  
+}
+
+  </style>
+</head>
+<body>
+  <div id="head">
+    <div id="menu" onclick="toggleMenu()">
+      <img src="image/menulogo.png" style="width: 50px; height: 50px; cursor: pointer;" alt="Menu Icon" />
+    </div>
+
+    <h1 id="t1" style="text-align: center;">Welcome to Fun-World</h1>
+
+    <div id="log-in">
+      <img src="image/login.png" style="width: 50px; height: 50px; cursor: pointer;" alt="Login Icon" />
+    </div>
+  </div>
+
+  <!-- Slide-out menu placed outside #head -->
+  <div id="side-menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">search</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+
+  <div class="container1">
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <div class="box" id="box5"></div>
+  </div>
+
+  <div class="container2">
+    <div class="box" id="box6"></div>
+    <div class="box" id="box7"></div>
+    <div class="box" id="box8"></div>
+    <div class="box" id="box9"></div>
+    <div class="box" id="box10"></div>
+  </div>
+
+  <div class="container3">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+  </div>
+
+  <div id="bottom">
+    <h1>Later</h1>
+  </div>
+
+  <script >
+    
+  const menuIcon = document.getElementById("menu");
+  const sideMenu = document.getElementById("side-menu");
+
+  // Toggle menu on icon click
+  menuIcon.onclick = function (event) {
+    event.stopPropagation(); // Prevent click from bubbling to document
+    sideMenu.classList.toggle("active");
+  };
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!sideMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+      sideMenu.classList.remove("active");
+    }
+  });
+
+
+  document.getElementById("box1").addEventListener("click", function () {
+  window.location.href = "/assets/index.html";
+});
+
+  </script>
+</body>
+</html>
